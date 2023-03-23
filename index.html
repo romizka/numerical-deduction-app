@@ -144,17 +144,10 @@
           instrSection.classList.toggle('hide');
         }
 
-        const showResult = function() {
-    let totalScore = 0;
-    scoreSection.prepend(`Your total score: ${totalScore} / 21`);
 
-      tasksSection.classList.toggle('hide');
-      scoreSection.classList.toggle('hide');
-    
-        }
+        let totalScore = 0;
 
         function addPoints() {
-          let totalScore = 0;
       const element = document.getElementsByTagName('input');
       for(i = 0; i < element.length; i++) {
         if(element[i].type="radio" && element[i].checked) {
@@ -165,9 +158,22 @@
           }
         }
 
-      }      
+      }  
+
+
+      const showResult = function() {
+    scoreSection.prepend(`Your total score: ${totalScore} / 21`);
+
+      tasksSection.classList.toggle('hide');
+      scoreSection.classList.toggle('hide');
+    
+        }
+
+
 
         startBtn.addEventListener('click', startQuiz);
+
+        submitBtn.addEventListener('click', addPoints);
 
         submitBtn.addEventListener('click', showResult);
 
