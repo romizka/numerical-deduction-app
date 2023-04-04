@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerical deduction</title>
+
+    <link href="assets/styles/index.css" rel="stylesheet" />
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <div class="container">
+      <h1>Numerical deduction</h1>
+
+      <section class="introduction">
+        <p class="introduction__text">
+          This tests how easily you think with numbers. You are given a series
+          of numbers. Your task is to see how they go together to form a
+          relationship with each other. You then have to choose the number which
+          would go next in the series, choosing from the four possible answers
+          provided. It is advisable to have a piece of scrap paper and a pencil
+          to do any working out that may be necessary. Mark the correct answer.
+        </p>
+
+        <div class="introduction__example">
+          <h2 class="introduction__example-number">Example 1</h2>
+          <p class="introduction__example-task">2 4 6 8 10 ?</p>
+          <p class="introduction__answer">A. 11 B. 20 C. 12 D. 18</p>
+          <p class="introduction__example-explanation">
+            Answer C is correct. Explanation: the numbers are a series. The next
+            one in the series should be 2 more.
+          </p>
+        </div>
+
+        <div class="introduction__example">
+          <h2 class="introduction__example-number">Example 2</h2>
+          <p class="introduction__example-task">14 12.5 11 9.5 8 ?</p>
+          <p class="introduction__answer">A. 6.5 B. 5.5 C. 7.5 D. 6</p>
+          <p class="introduction__example-explanation">
+            Answer A is correct. Explanation: the series is reducing by 1.5, so
+            you should take 1.5 away from 8.
+          </p>
+        </div>
+
+        <div class="introduction__example">
+          <h2 class="introduction__example-number">Example 3</h2>
+          <p class="introduction__example-task">1 3 7 15 31 ?</p>
+          <p class="introduction__answer">A. 46 B. 62 C. 61 D. 63</p>
+          <p class="introduction__example-explanation">
+            Answer D is correct. Explanation: the gaps between the numbers are
+            2, 4, 8 and 16, so what number would fill the gap between the last
+            and the missing number? Alternatively, this series can be done by
+            doubling each of the numbers in the series and adding 1.
+          </p>
+        </div>
+      </section>
+      <section class="instruction">
+        <p class="instruction__text">
+          You have 10 minutes to do as much as you can. You must work as quickly
+          and as accurately as you can. Remember, you are likely to need a piece
+          of scrap paper and a pencil. Begin as soon as you are ready.
+        </p>
+
+        <button id="startButton">Start</button>
+      </section>
+      <section class="tasks hide">
+      </section>
+      <button class="hide" type="button" id="submitButton">Submit</button>
+      <section class="score hide">
+        <section class="interpretation">
+          <h2 class="interpretation__title">Interpretation</h2>
+          <p class="interpretation__text">
+            To perform well on this test, you have to perceive how numbers
+            relate to each other. As you will have realized, it is more than a
+            test of arithmetic. In fact, many people who think that they are
+            ‘terrible’ at arithmetic often surprise themselves by doing better
+            on this test than they expect. Each series of numbers is like a code
+            which contains a hidden message. You have to work out the
+            relationship of the numbers with each other to deduce the answer. It
+            is a logical exercise, without the subtleties of interpretation
+            needed in the test of verbal penetration. The aptitude for
+            discovering the logic in a series of pieces of connected information
+            is essential in many areas of work. These are often the mathematical
+            sciences where quantification and precise technical information
+            exchange are required. This aptitude is found in statistically-based
+            commercial activities as well as most highly technical and
+            research-based ones.
+          </p>
+        </section>
+      </section>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+  </body>
+</html>
