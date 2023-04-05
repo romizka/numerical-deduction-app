@@ -2,7 +2,6 @@
 import { tasksList } from './tasksList.js';
 
       const introSection = document.querySelector('.introduction');
-      const instrSection = document.querySelector('.instruction');
       const tasksSection = document.querySelector('.tasks');
       const scoreSection = document.querySelector('.score');
       const startBtn = document.getElementById('startButton');
@@ -19,7 +18,7 @@ import { tasksList } from './tasksList.js';
           <div>
           <input type="radio" name='task-${tasksList.indexOf(item)}' value="0" id="task-${tasksList.indexOf(item)}-a"/>
           <label for="task-${tasksList.indexOf(item)}-a">"${item.A}"</label>
-           <input type="radio" name='task-${tasksList.indexOf(item)}' value="1" id="task-${tasksList.indexOf(item)}-b" />
+           <input type="radio" name='task-${tasksList.indexOf(item)}' value="1" id="task-${tasksList.indexOf(item)}-b"/>
            <label for="task-${tasksList.indexOf(item)}-b">"${item.B}"</label>
           <input type="radio" name='task-${tasksList.indexOf(item)}' value="0" id="task-${tasksList.indexOf(item)}-c"/>
           <label for="task-${tasksList.indexOf(item)}-c">"${item.C}"</label>
@@ -38,7 +37,6 @@ import { tasksList } from './tasksList.js';
       const startQuiz = function() {
           tasksSection.classList.toggle('hide');
           introSection.classList.toggle('hide');
-          instrSection.classList.toggle('hide');
           submitBtn.classList.toggle('hide');
         }
 
