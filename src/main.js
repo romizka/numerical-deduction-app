@@ -6,16 +6,18 @@ import { tasksList } from './tasksList.js';
       const scoreSection = document.querySelector('.score');
       const startBtn = document.getElementById('startButton');
       const submitBtn = document.getElementById('submitButton');
+      const tasksElements = document.querySelector('.tasks_elements');
+      const scoreElement = document.querySelector('.score__element')
 
-tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
+tasksElements.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
 
 <h3 class="mb-2 mt-8 font-semibold text-blue-600 font-bold text-center">Task ${tasksList.indexOf(item) + 1}</h3>
 <h4 class="mb-2 font-semibold text-gray-600 text-center">${item.question}</h4>
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-license" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
-      <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 ">A: ${item.answers[0].answer}</label>
+      <input id="horizontal-list-radio-license" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required>
+      <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600" required>A: ${item.answers[0].answer}</label>
   </div>
 </li>
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
@@ -66,10 +68,11 @@ tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
 
 
     const showResult = function() {
-    scoreSection.prepend(`Your total score: ${totalScore} / 21`);
+      scoreElement.innerHTML = `Your total score: <br> ${totalScore} / 21`;
 
       tasksSection.classList.toggle('hide');
       scoreSection.classList.toggle('hide');
+      submitBtn.classList.toggle('hide');
     
         }
 
