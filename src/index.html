@@ -32,6 +32,7 @@
         <p class="introduction__text mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">It is
           advisable to have a piece of scrap paper and a pencil to do any working out
           that may be necessary. Mark the correct answer.</p>
+         
               
 
 
@@ -39,7 +40,7 @@
               
   <div id="accordion-color" data-accordion="collapse" data-active-classes="bg-blue-100 text-blue-600">
     <h2 id="accordion-color-heading-1">
-      <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 hover:bg-blue-100" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
         <span>First example: 2 4 6 8 10 ?</span>
         <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
       </button>
@@ -161,8 +162,9 @@
           and as accurately as you can. Remember, you are likely to need a piece
           of scrap paper and a pencil. Begin as soon as you are ready.</p>
 
-</p>
+
   </div>
+</div>
 </div>
 
 </div>
@@ -171,15 +173,13 @@
 
 <!-- GET STARTED BUTTON -->
 
-<div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mt-8">
-  <button id="startButton" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+<div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+  <button id="startButton" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
       Get started
    <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
   </button>
-
-</section>
 </div>
-
+</section>
 
 
 <!-- TASKS -->
@@ -187,17 +187,17 @@
   <section class="tasks hide py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Explore your strengths!</h1>
     <h2 class="mb-10 text-4xl font-extrabold tracking-tight leading-none text-blue-600 md:text-5xl lg:text-6xl">Numerical deduction Quiz</h2>
-    <form action="/form/submit" method="GET">
+    <!-- <form action="/form/submit" method="GET"> -->
       <div class="tasks_elements"></div>
-      <input type="sumbit">
-    </form>
+      <!-- <input type="sumbit"> -->
+    <!-- </form> -->
   </section>
 
 <!-- 
 SUBMIT BUTTON -->
 
-  <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mt-8 mb-8">
-  <button id="submitButton" class="hide inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+  <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mb-8">
+  <button id="submitButton" class="hide inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
     Submit
  <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 </button>
@@ -207,39 +207,37 @@ SUBMIT BUTTON -->
 
   <!-- SCORE -->
 
-  <section class="score hide">
-
-    <section class="bg-blue-100">
+  <section class="score hide bg-blue-100 py-8 px-4 mx-auto text-center lg:py-16">
       <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
           <div class="flex flex-col justify-center">
-              <h1 class="score__element mb-4 text-4xl font-extrabold tracking-tight leading-none text-blue-600  md:text-5xl lg:text-6xl dark:text-white">Your total score:</h1>
+              <h1 class="score__element mb-4 text-4xl font-extrabold tracking-tight leading-none text-blue-600  md:text-5xl lg:text-6xl text-left"></h1>
               
               <a href="#" class="text-gray-900 hover:underline font-medium text-lg inline-flex items-center">Take the quiz again
-                  <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                   </svg>
               </a>
           </div>
           <div>
-              <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
-                  <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+              <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl">
+                  <h2 class="text-2xl font-bold text-gray-900">
                       Interpretation
                   </h2>
                   
                       <div class="mt-8 space-y-6">
-                        <p block mb-2 text-sm font-medium text-gray-300> To perform well on this test, you have to perceive how numbers
+                        <p class="block mb-2 text-sm font-medium text-gray-300"> To perform well on this test, you have to perceive how numbers
                           relate to each other. As you will have realized, it is more than a
                           test of arithmetic. In fact, many people who think that they are
                           ‘terrible’ at arithmetic often surprise themselves by doing better
                           on this test than they expect.</p>
 
-                          <p block mb-2 text-sm font-medium text-gray-300>Each series of numbers is like a code
+                          <p class="block mb-2 text-sm font-medium text-gray-300">Each series of numbers is like a code
                             which contains a hidden message. You have to work out the
                             relationship of the numbers with each other to deduce the answer. It
                             is a logical exercise, without the subtleties of interpretation
                             needed in the test of verbal penetration. </p>
 
-                            <p block mb-2 text-sm font-medium text-gray-300>The aptitude for
+                            <p class="block mb-2 text-sm font-medium text-gray-300">The aptitude for
                               discovering the logic in a series of pieces of connected information
                               is essential in many areas of work. These are often the mathematical
                               sciences where quantification and precise technical information
@@ -251,10 +249,7 @@ SUBMIT BUTTON -->
               </div>
           </div>
       </div>
-  </section>
-
-    </div> 
-
+    </section> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     <script type="module" src="./main.js"></script>
