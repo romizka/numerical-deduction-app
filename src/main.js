@@ -53,19 +53,19 @@ tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
 </li>
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-id" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-id" type="radio" value="${item.answers[1].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">B: ${item.answers[1].answer}</label>
   </div>
 </li>
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-millitary" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-millitary" type="radio" value="${item.answers[2].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">C: ${item.answers[2].answer}</label>
   </div>
 </li>
 <li class="w-full">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-passport" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-passport" type="radio" value="${item.answers[3].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">D: ${item.answers[3].answer}</label>
   </div>
 </li>
@@ -106,7 +106,9 @@ tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
       
       function addPoints() {
       const element = document.getElementsByTagName('input');
+      
       for(let i = 0; i < element.length; i++) {
+        console.log(element[i].value);
         if (element[i].type === "radio" && element[i].checked) {
           if (element[i].value == 1) {
             totalScore += 1;
