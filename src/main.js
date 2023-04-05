@@ -11,7 +11,7 @@ import { tasksList } from './tasksList.js';
 
 tasksElements.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
 
-<h3 class="mb-2 mt-8 font-semibold text-blue-600 font-bold text-center">Task ${tasksList.indexOf(item) + 1}</h3>
+<h3 class="mb-2 mt-8 font-semibold text-blue-600 font-bold text-center uppercase">Task ${tasksList.indexOf(item) + 1}</h3>
 <h4 class="mb-2 font-semibold text-gray-600 text-center tracking-widest">${item.question}</h4>
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
