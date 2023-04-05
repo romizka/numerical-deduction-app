@@ -1,49 +1,87 @@
-export const tasksList = [
-    {
-    text: '0 5 10 15 20 ?',
-    A: 'A. 20',
-    B: 'B. 25',
-    C: 'C. 30',
-    D: 'D. 21',
-    },
+// export const tasksList = [
+//     {
+//     text: '0 5 10 15 20 ?',
+//     a: '20',
+//     b: '25',
+//     c: '30',
+//     d: '21',
+//     answer: 'b',
+//     },
 
-    {
-    text: '.25 .5 1 2 4 ?',
-    A: 'A. 12',
-    B: 'B. 16',
-    C: 'C. 8',
-    D: 'D. 10',
-    },
+//     {
+//     text: '.25 .5 1 2 4 ?',
+//     a: '12',
+//     b: '16',
+//     c: '8',
+//     d: '10',
+//     answer: 'c',
+//     },
 
-    {
-    text: '98 50 26 14 8 ?',
-    A: 'A. 4',
-    B: 'B. 2',
-    C: 'C. 6',
-    D: 'D. 5',
-    },
+//     {
+//     text: '98 50 26 14 8 ?',
+//     a: '4',
+//     b: '2',
+//     c: '6',
+//     d: '5',
+//     answer: 'd',
+//     },
 
-    {
-    text: '1 2 3 5 8 ?',
-    A: 'A. 5',
-    B: 'B. 11',
-    C: 'C. 8',
-    D: 'D. 13',
-    },
+//     {
+//     text: '1 2 3 5 8 ?',
+//     a: '5',
+//     b: '11',
+//     c: '8',
+//     d: '13',
+//     answer: 'd',
+//     },
 
-    {
-    text: '4 8 12 16 20 ?',
-    A: 'A. 25',
-    B: 'B. 22',
-    C: 'C. 24',
-    D: 'D. 28',
-    },
+//     {
+//     text: '4 8 12 16 20 ?',
+//     a: '25',
+//     b: '22',
+//     c: '24',
+//     d: '28',
+//     answer: 'c',
+//     },
 
     
         
 
-]
+// ]
 
+
+export const tasksList = [
+    {
+        question: '0 5 10 15 20 ?', 
+        answers: [
+            {answer: '20', isCorrect: false},
+            {answer: '25', isCorrect: true},
+            {answer: '30', isCorrect: false},
+            {answer: '21', isCorrect: false},
+        ]
+    },
+
+    {
+        question: '.25 .5 1 2 4 ?', 
+        answers: [
+            {answer: '12', isCorrect: false},
+            {answer: '16', isCorrect: false},
+            {answer: '8', isCorrect: true},
+            {answer: '10', isCorrect: false},
+        ]
+    },
+
+    {
+        question: '98 50 26 14 8 ?', 
+        answers: [
+            {answer: '4', isCorrect: false},
+            {answer: '2', isCorrect: false},
+            {answer: '6', isCorrect: false},
+            {answer: '5', isCorrect: true},
+        ]
+    },
+
+];
 
 
 
