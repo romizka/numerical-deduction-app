@@ -54,30 +54,30 @@ export const tasksList = [
     {
         question: '0 5 10 15 20 ?', 
         answers: [
-            {answer: '20', isCorrect: false},
-            {answer: '25', isCorrect: true},
-            {answer: '30', isCorrect: false},
-            {answer: '21', isCorrect: false},
+            {answer: '20', isCorrect: false, value: 0},
+            {answer: '25', isCorrect: true, value: 1},
+            {answer: '30', isCorrect: false, value: 0},
+            {answer: '21', isCorrect: false, value: 0},
         ]
     },
 
     {
         question: '.25 .5 1 2 4 ?', 
         answers: [
-            {answer: '12', isCorrect: false},
-            {answer: '16', isCorrect: false},
-            {answer: '8', isCorrect: true},
-            {answer: '10', isCorrect: false},
+            {answer: '12', isCorrect: false, value: 0},
+            {answer: '16', isCorrect: false, value: 0},
+            {answer: '8', isCorrect: true, value: 1},
+            {answer: '10', isCorrect: false, value: 0},
         ]
     },
 
     {
         question: '98 50 26 14 8 ?', 
         answers: [
-            {answer: '4', isCorrect: false},
-            {answer: '2', isCorrect: false},
-            {answer: '6', isCorrect: false},
-            {answer: '5', isCorrect: true},
+            {answer: '4', isCorrect: false, value: 0},
+            {answer: '2', isCorrect: false, value: 0},
+            {answer: '6', isCorrect: false, value: 0},
+            {answer: '5', isCorrect: true, value: 1},
         ]
     },
 

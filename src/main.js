@@ -47,25 +47,25 @@ tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-license" type="radio" value="" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-license" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 ">A: ${item.answers[0].answer}</label>
   </div>
 </li>
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-id" type="radio" value="" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-id" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">B: ${item.answers[1].answer}</label>
   </div>
 </li>
 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-millitary" type="radio" value="" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-millitary" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">C: ${item.answers[2].answer}</label>
   </div>
 </li>
 <li class="w-full">
   <div class="flex items-center pl-3">
-      <input id="horizontal-list-radio-passport" type="radio" value="" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+      <input id="horizontal-list-radio-passport" type="radio" value="${item.answers[0].value}" name='task-${tasksList.indexOf(item)}' class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
       <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-gray-600">D: ${item.answers[3].answer}</label>
   </div>
 </li>
@@ -101,46 +101,36 @@ tasksSection.insertAdjacentHTML('beforeEnd', tasksList.map(item => `
         }
 
 
-        let totalScore = 0;
+      let totalScore = 0;
 
       
-      // function addPoints() {
-      // const element = document.getElementsByTagName('input');
-      // for(i = 0; i < element.length; i++) {
-      //   if (element[i].type === "radio" && element[i].checked) {
-      //     if (element[i].value === ) {
-      //       totalScore += 1;
-      //      }
-      //     }
-      //   }
-      //   }
-
-        // function addPoints() {
-          
-        //   tasksList.forEach((item, index) => {
-        //     const radios = document.getElementsByName(`task-${index}`);
-        
-        //     radios.forEach((radio) => {
-        //       if (radio.checked && item.answers[radio.value].isCorrect) {
-        //         score++;
-        //       }
-        //     });
-        //   });
-        
-        //   console.log(`Twój wynik to ${score}/${tasksList.length}`);
-        // }
-
-    
       function addPoints() {
       const element = document.getElementsByTagName('input');
       for(let i = 0; i < element.length; i++) {
         if (element[i].type === "radio" && element[i].checked) {
-          if (element[i].answers.answer === true ) {
+          if (element[i].value == 1) {
             totalScore += 1;
            }
           }
         }
         }
+
+      // function addPoints() {
+      //   const elements = document.querySelectorAll('input[type=radio]:checked');
+      
+      //   elements.forEach((element) => {
+      //     const taskIndex = parseInt(element.name.split('-')[1]);
+      //     const answerIndex = parseInt(element.value.split('-')[1]);
+      //     const task = tasksList[taskIndex];
+      //     const answer = task.answers[answerIndex];
+      
+      //     if (answer.isCorrect) {
+      //       totalScore += 1;
+      //     }
+      //   });
+      // }
+
+
 
 
       const showResult = function() {
