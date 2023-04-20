@@ -39,10 +39,10 @@ tasksElements.insertAdjacentHTML(
   tasksList
 
     .map(
-      (item) => `
-      
+      (item, index) => `
+
 <h3 class="mb-2 mt-8 font-semibold text-blue-600 font-bold text-center uppercase">Task ${
-        tasksList.indexOf(item) + 1
+        index + 1
       }</h3>
 <h4 class="mb-2 font-semibold text-gray-600 text-center tracking-widest">${
         item.question
