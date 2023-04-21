@@ -11,7 +11,7 @@ const timerElement = document.getElementById("timer");
 
 // TIMER
 
-let timeRemaining = 200; // 10 minutes in seconds
+let timeRemaining = 600; // 10 minutes in seconds
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -106,7 +106,7 @@ const showResult = function () {
   submitBtn.classList.toggle("hide");
 };
 
-const onSubmit = (e) => {
+const onSubmit = () => {
   addPoints();
   showResult();
 };
