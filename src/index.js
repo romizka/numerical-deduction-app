@@ -41,7 +41,7 @@ function makeAnswersList(item, index) {
     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
       <div class="flex items-center pl-3 bg-blue-100">
         <input id="horizontal-list-radio-license" type="radio" value="${item.answers[i].value}" name='task-${index}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2" required>
-        <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">A: ${item.answers[i].answer}</label>
+        <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">${item.answers[i].answer}</label>
       </div>
     </li>
   `;
@@ -104,6 +104,7 @@ const showResult = function () {
   tasksSection.classList.toggle("hide");
   scoreSection.classList.toggle("hide");
   submitBtn.classList.toggle("hide");
+  timerElement.classList.toggle("hide");
 };
 
 const onSubmit = () => {
