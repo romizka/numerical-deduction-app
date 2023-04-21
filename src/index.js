@@ -1,4 +1,4 @@
-import { tasksList } from "./tasksList.js";
+import tasksList from "./tasksList.js";
 
 const introSection = document.querySelector(".introduction");
 const tasksSection = document.querySelector(".tasks");
@@ -11,7 +11,7 @@ const timerElement = document.getElementById("timer");
 
 // TIMER
 
-let timeRemaining = 600; // 10 minutes in seconds
+let timeRemaining = 200; // 10 minutes in seconds
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -34,10 +34,24 @@ function timer() {
 
 const timerInterval = setInterval(timer, 1000);
 
+function makeAnswersList(item, index) {
+  let answersList = "";
+  for (let i = 0; i < 4; i++) {
+    answersList += `
+    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+      <div class="flex items-center pl-3 bg-blue-100">
+        <input id="horizontal-list-radio-license" type="radio" value="${item.answers[i].value}" name='task-${index}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2" required>
+        <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">A: ${item.answers[i].answer}</label>
+      </div>
+    </li>
+  `;
+  }
+  return answersList;
+}
+
 tasksElements.insertAdjacentHTML(
   "beforeEnd",
   tasksList
-
     .map(
       (item, index) => `
 
@@ -50,56 +64,8 @@ tasksElements.insertAdjacentHTML(
 <form>
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 
-
-  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-  <div class="flex items-center pl-3 bg-blue-100">
-      <input id="horizontal-list-radio-license" type="radio" value="${
-        item.answers[0].value
-      }" name='task-${tasksList.indexOf(
-        item
-      )}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2">
-      <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">A: ${
-        item.answers[0].answer
-      }</label>
-  </div>
-</li>
-<li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-  <div class="flex items-center pl-3 bg-blue-100">
-      <input id="horizontal-list-radio-id" type="radio" value="${
-        item.answers[1].value
-      }" name='task-${tasksList.indexOf(
-        item
-      )}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2">
-      <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">B: ${
-        item.answers[1].answer
-      }</label>
-  </div>
-</li>
-<li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-  <div class="flex items-center pl-3 bg-blue-100">
-      <input id="horizontal-list-radio-millitary" type="radio" value="${
-        item.answers[2].value
-      }" name='task-${tasksList.indexOf(
-        item
-      )}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2">
-      <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">C: ${
-        item.answers[2].answer
-      }</label>
-  </div>
-</li>
-<li class="w-full">
-  <div class="flex items-center pl-3 bg-blue-100">
-      <input id="horizontal-list-radio-passport" type="radio" value="${
-        item.answers[3].value
-      }" name='task-${tasksList.indexOf(
-        item
-      )}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2">
-      <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">D: ${
-        item.answers[3].answer
-      }</label>
-  </div>
-</li>
-
+${makeAnswersList(item, index)}
+ 
 </ul>
 </form>
 

@@ -1,4 +1,4 @@
-export const tasksList = [
+const tasksList = [
   {
     question: "0 5 10 15 20 ?",
     answers: [
@@ -209,3 +209,5 @@ export const tasksList = [
     ],
   },
 ];
+
+export default tasksList;
