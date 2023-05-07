@@ -54,21 +54,19 @@ tasksElements.insertAdjacentHTML(
   tasksList
     .map(
       (item, index) => `
-
+      <li class="splide__slide">
 <h3 class="mb-2 mt-8 font-semibold text-blue-600 font-bold text-center uppercase">Task ${
         index + 1
       }</h3>
 <h4 class="mb-2 font-semibold text-gray-600 text-center tracking-widest">${
         item.question
       }</h4>
-<form>
+
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
-
 ${makeAnswersList(item, index)}
- 
-</ul>
-</form>
 
+</ul>
+</li>
 `
     )
     .join("")
@@ -115,3 +113,17 @@ const onSubmit = () => {
 startBtn.addEventListener("click", startQuiz);
 
 submitBtn.addEventListener("click", onSubmit);
+
+// slider
+
+var splide = new Splide(".splide");
+var bar = splide.root.querySelector(".my-carousel-progress-bar");
+
+// Updates the bar width whenever the carousel moves:
+splide.on("mounted move", function () {
+  var end = splide.Components.Controller.getEnd() + 1;
+  var rate = Math.min((splide.index + 1) / end, 1);
+  bar.style.width = String(100 * rate) + "%";
+});
+
+splide.mount();

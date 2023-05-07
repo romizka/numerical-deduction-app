@@ -8,15 +8,29 @@
 
     <link href="../src/assets/styles/index.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/node_modules/@splidejs/splide/dist/css/splide.min.css">
 
     <style>
       .hide {
   display: none;
 }
 
+
+.my-carousel-progress {
+  background: #ccc;
+}
+
+.my-carousel-progress-bar {
+  background: greenyellow;
+  height: 2px;
+  transition: width 400ms ease;
+  width: 0;
+}
+
     </style>
   </head>
   <body>
+  
 
 
 <!-- INTRODUCTION -->
@@ -193,10 +207,18 @@
 <section class="mt-14 pb-8 tasks hide px-4 mx-auto max-w-screen-xl text-center lg:py-16">
     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Explore your strengths!</h1>
     <h2 class="mb-10 text-4xl font-extrabold tracking-tight leading-none text-blue-600 md:text-5xl lg:text-6xl">Numerical deduction Quiz</h2>
-    <!-- <form action="/form/submit" method="GET"> -->
-      <div class="tasks_elements"></div>
-      <!-- <input type="sumbit"> -->
-    <!-- </form> -->
+   
+<section class="splide">
+  <div class="splide__track">
+        <ul class="splide__list tasks_elements"> 
+  </div>
+
+<!-- Add the progress bar element -->
+
+ <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
   </section>
 
 <!-- 
