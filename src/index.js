@@ -1,4 +1,7 @@
 import tasksList from "./tasksList.js";
+import Splide from "@splidejs/splide";
+
+new Splide(".splide").mount();
 
 const introSection = document.querySelector(".introduction");
 const tasksSection = document.querySelector(".tasks");
@@ -62,20 +65,28 @@ tasksElements.insertAdjacentHTML(
         item.question
       }</h4>
 
+<div class="options">
+<form>
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 ${makeAnswersList(item, index)}
-
 </ul>
+</form>
+</div>
 </li>
 `
     )
     .join("")
 );
 
+const listItems = document.querySelectorAll(".splide__slide");
+const lastListItem = listItems[listItems.length - 1];
+lastListItem.addEventListener("change", () => {
+  submitBtn.classList.toggle("hide");
+});
+
 const startQuiz = function () {
   tasksSection.classList.toggle("hide");
   introSection.classList.toggle("hide");
-  submitBtn.classList.toggle("hide");
   timerElement.classList.toggle("hide");
 };
 
@@ -116,13 +127,13 @@ submitBtn.addEventListener("click", onSubmit);
 
 // slider
 
-var splide = new Splide(".splide");
-var bar = splide.root.querySelector(".my-carousel-progress-bar");
+const splide = new Splide(".splide");
+const bar = splide.root.querySelector(".my-carousel-progress-bar");
 
 // Updates the bar width whenever the carousel moves:
 splide.on("mounted move", function () {
-  var end = splide.Components.Controller.getEnd() + 1;
-  var rate = Math.min((splide.index + 1) / end, 1);
+  const end = splide.Components.Controller.getEnd() + 1;
+  const rate = Math.min((splide.index + 1) / end, 1);
   bar.style.width = String(100 * rate) + "%";
 });
 
