@@ -14,7 +14,7 @@ const timerElement = document.getElementById("timer");
 
 // TIMER
 
-let timeRemaining = 600; // 10 minutes in seconds
+let timeRemaining = 20; // 10 minutes in seconds
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -112,7 +112,7 @@ const showResult = function () {
 
   tasksSection.classList.toggle("hide");
   scoreSection.classList.toggle("hide");
-  submitBtn.classList.toggle("hide");
+  submitBtn.classList.add("hide");
   timerElement.classList.toggle("hide");
 };
 
