@@ -5,7 +5,7 @@
   "source": "public/index.html",
   "scripts": {
     "start": "parcel public/index.html",
-    "build": "parcel build public/index.html --public-url https://romizka.github.io/numerical-deduction-app/",
+    "build": "rm -rf dist && parcel build public/index.html --public-url https://romizka.github.io/numerical-deduction-app/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -27,6 +27,7 @@
     "tailwindcss": "^3.3.1"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
     "flowbite": "^1.6.4",
     "gh-pages": "^5.0.0"
   }

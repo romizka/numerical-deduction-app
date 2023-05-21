@@ -8,15 +8,15 @@
 
     <link href="../src/assets/styles/index.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
     <style>
-      .hide {
-  display: none;
-}
+
 
     </style>
   </head>
   <body>
+  
 
 
 <!-- INTRODUCTION -->
@@ -193,10 +193,18 @@
 <section class="mt-14 pb-8 tasks hide px-4 mx-auto max-w-screen-xl text-center lg:py-16">
     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Explore your strengths!</h1>
     <h2 class="mb-10 text-4xl font-extrabold tracking-tight leading-none text-blue-600 md:text-5xl lg:text-6xl">Numerical deduction Quiz</h2>
-    <!-- <form action="/form/submit" method="GET"> -->
-      <div class="tasks_elements"></div>
-      <!-- <input type="sumbit"> -->
-    <!-- </form> -->
+   
+<section class="splide">
+  <div class="splide__track">
+        <ul class="splide__list tasks_elements"> 
+  </div>
+
+<!-- Add the progress bar element -->
+
+ <div class="my-carousel-progress">
+    <div class="my-carousel-progress-bar"></div>
+  </div>
+</section>
   </section>
 
 <!-- 
@@ -207,7 +215,9 @@ SUBMIT BUTTON -->
     Submit
  <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 </button>
+
 </div>
+
 
 
 

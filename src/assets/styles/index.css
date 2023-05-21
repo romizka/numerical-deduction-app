@@ -14,6 +14,26 @@
   align-items: center;
 }
 
-.hide {
+.hide,
+button.hide {
   display: none;
+}
+
+.my-carousel-progress {
+  background: rgb(219 234 254);
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 50px;
+}
+
+.my-carousel-progress-bar {
+  background: rgb(37 99 235);
+  height: 2px;
+  transition: width 400ms ease;
+  width: 0;
+}
+
+.options {
+  padding-left: 20%;
+  padding-right: 20%;
 }
