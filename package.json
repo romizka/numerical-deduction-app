@@ -24,11 +24,14 @@
   "devDependencies": {
     "parcel": "^2.8.3",
     "posthtml-doctype": "^1.1.1",
+    "process": "^0.11.10",
     "tailwindcss": "^3.3.1"
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
+    "firebase": "^9.22.1",
     "flowbite": "^1.6.4",
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "notiflix": "^3.2.6"
   }
 }

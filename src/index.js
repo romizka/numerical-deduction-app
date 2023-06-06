@@ -1,5 +1,7 @@
-import tasksList from "./tasksList.js";
+import tasksList from "./js/tasksList.js";
 import Splide from "@splidejs/splide";
+import "./js/firebase.js";
+import Notiflix from "notiflix";
 
 new Splide(".splide").mount();
 
@@ -11,10 +13,12 @@ const submitBtn = document.getElementById("submitButton");
 const tasksElements = document.querySelector(".tasks_elements");
 const scoreElement = document.querySelector(".score__element");
 const timerElement = document.getElementById("timer");
+const logInfo = document.querySelector(".fire-log");
 
 // TIMER
 
 let timeRemaining = 600; // 10 minutes in seconds
+let timerInterval;
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -34,8 +38,6 @@ function timer() {
     onSubmit();
   }
 }
-
-const timerInterval = setInterval(timer, 1000);
 
 function makeAnswersList(item, index) {
   let answersList = "";
@@ -88,6 +90,8 @@ const startQuiz = function () {
   tasksSection.classList.toggle("hide");
   introSection.classList.toggle("hide");
   timerElement.classList.toggle("hide");
+  logInfo.classList.toggle("hide");
+  timerInterval = setInterval(timer, 1000);
 };
 
 let totalScore = 0;
