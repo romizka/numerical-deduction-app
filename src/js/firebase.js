@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 
 import Notiflix from "notiflix";
+import "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -114,4 +116,17 @@ window.addEventListener("click", (event) => {
 signInUpButton.addEventListener("click", openModal);
 closeModal.addEventListener("click", closeModalFunction);
 
-export { userSignUp, userSignIn, userSignOut, openModal, closeModalFunction };
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+export {
+  userSignUp,
+  userSignIn,
+  userSignOut,
+  openModal,
+  closeModalFunction,
+  db,
+  auth,
+  addDoc,
+  collection,
+};

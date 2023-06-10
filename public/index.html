@@ -16,10 +16,15 @@
     </style>
   </head>
   <body>
+    <!-- previous results -->
+<div id="previous-result-section" class="previous-result-section text-gray-500">
+</div>
 <!-- modal -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
+
+
     <!-- registration / login form -->
 <div id="authForm" class="fire-main">
   <div class="fire-main__container">
@@ -47,7 +52,7 @@
 <!-- content after login -->
 <div id="secretContent" target="_blank" class="fire-log">
   <h3>Welcome! You are logged in!</h3>
-  <button class="fire-log__btn rounded-lg">View previous results</button>
+  <button id="previousResultButton" class="fire-log__btn rounded-lg">View previous results</button>
   <button id="signOutButton" class="fire-log__btn rounded-lg">Sign Out</button>
 </div>
 

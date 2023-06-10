@@ -1,5 +1,6 @@
 import tasksList from "./js/tasksList.js";
-import "./js/firebase.js";
+import { db, auth, addDoc, collection } from "./js/firebase.js";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { timer } from "./js/timer.js";
 import { sliderFunction } from "./js/slider.js";
 import { makeAnswersList } from "./js/answersList.js";
@@ -13,6 +14,10 @@ const tasksElements = document.querySelector(".tasks_elements");
 const scoreElement = document.querySelector(".score__element");
 const timerElement = document.getElementById("timer");
 const logInfo = document.querySelector(".fire-log");
+const previousResultButton = document.getElementById("previousResultButton");
+const previousResultSection = document.getElementById(
+  "previous-result-section"
+);
 
 tasksElements.insertAdjacentHTML(
   "beforeEnd",
@@ -51,6 +56,7 @@ const startQuiz = function () {
   introSection.classList.toggle("hide");
   timerElement.classList.toggle("hide");
   logInfo.classList.toggle("hide");
+  previousResultSection.classList.toggle("hide");
   timerInterval = setInterval(timer, 1000);
 };
 
@@ -80,10 +86,90 @@ const showResult = function () {
   timerElement.classList.toggle("hide");
 };
 
+const saveResult = async () => {
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      await addDoc(collection(db, "results"), {
+        userId: user.email,
+        result: totalScore,
+        timestamp: new Date(),
+      });
+      console.log("Wynik został zapisany do Firestore.");
+    } catch (error) {
+      console.error("Wystąpił błąd podczas zapisywania wyniku:", error);
+    }
+  }
+};
+
 const onSubmit = () => {
   addPoints();
   showResult();
+  saveResult();
 };
+
+let resultsVisible = false;
+const showPreviousResult = async () => {
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      const querySnapshot = await getDocs(
+        query(collection(db, "results"), where("userId", "==", user.email))
+      );
+      const results = [];
+      querySnapshot.forEach((doc) => {
+        results.push(doc.data());
+      });
+      if (results.length > 0) {
+        displayResults(results);
+      } else {
+        displayNoResultsMessage();
+      }
+    } catch (error) {
+      console.error("Wystąpił błąd podczas pobierania wyników:", error);
+    }
+  }
+};
+
+const displayResults = (results) => {
+  const previousResultSection = document.getElementById(
+    "previous-result-section"
+  );
+  previousResultSection.innerHTML = "";
+
+  results.forEach((result) => {
+    const resultElement = document.createElement("div");
+    resultElement.innerHTML = `Result: ${
+      result.result
+    } / 21<br>Date: ${result.timestamp.toDate()}`;
+    previousResultSection.appendChild(resultElement);
+  });
+};
+
+const displayNoResultsMessage = () => {
+  const previousResultSection = document.getElementById(
+    "previous-result-section"
+  );
+  previousResultSection.innerHTML = "No results available";
+};
+
+const hidePreviousResult = () => {
+  previousResultSection.innerHTML = "";
+};
+
+const toggleResultsVisibility = () => {
+  if (resultsVisible) {
+    hidePreviousResult();
+    previousResultButton.textContent = "View previous result";
+    resultsVisible = false;
+  } else {
+    showPreviousResult();
+    previousResultButton.textContent = "Hide previous result";
+    resultsVisible = true;
+  }
+};
+
+previousResultButton.addEventListener("click", toggleResultsVisibility);
 
 startBtn.addEventListener("click", startQuiz);
 

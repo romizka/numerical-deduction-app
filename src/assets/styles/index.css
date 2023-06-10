@@ -103,3 +103,7 @@
 button.hide {
   display: none !important;
 }
+
+.previous-result-section {
+  margin: 15px;
+}

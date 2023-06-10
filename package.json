@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
-    "firebase": "^9.22.1",
+    "firebase": "^9.22.2",
     "flowbite": "^1.6.4",
     "gh-pages": "^5.0.0",
     "notiflix": "^3.2.6"
