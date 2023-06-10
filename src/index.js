@@ -1,4 +1,3 @@
-require("dotenv").config();
 import tasksList from "./js/tasksList.js";
 import "./js/firebase.js";
 import { timer } from "./js/timer.js";
@@ -29,11 +28,11 @@ tasksElements.insertAdjacentHTML(
       }</h4>
 
 <div class="options">
-<form>
+
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 ${makeAnswersList(item, index)}
 </ul>
-</form>
+
 </div>
 </li>
 `

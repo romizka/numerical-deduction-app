@@ -10,7 +10,7 @@ import {
 import Notiflix from "notiflix";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAx8GpwgEZfIMkTItumcYm-M_XVeVWGxQI",
+  apiKey: process.env.API_KEY,
   authDomain: "numerical-deduction-app.firebaseapp.com",
   projectId: "numerical-deduction-app",
   storageBucket: "numerical-deduction-app.appspot.com",
