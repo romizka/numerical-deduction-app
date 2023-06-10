@@ -1,9 +1,9 @@
+require("dotenv").config();
 import tasksList from "./js/tasksList.js";
-import Splide from "@splidejs/splide";
 import "./js/firebase.js";
-import Notiflix from "notiflix";
-
-new Splide(".splide").mount();
+import { timer } from "./js/timer.js";
+import { sliderFunction } from "./js/slider.js";
+import { makeAnswersList } from "./js/answersList.js";
 
 const introSection = document.querySelector(".introduction");
 const tasksSection = document.querySelector(".tasks");
@@ -14,45 +14,6 @@ const tasksElements = document.querySelector(".tasks_elements");
 const scoreElement = document.querySelector(".score__element");
 const timerElement = document.getElementById("timer");
 const logInfo = document.querySelector(".fire-log");
-
-// TIMER
-
-let timeRemaining = 600; // 10 minutes in seconds
-let timerInterval;
-
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
-    .toString()
-    .padStart(2, "0")}`;
-}
-
-function timer() {
-  timeRemaining--;
-  timerElement.textContent = formatTime(timeRemaining);
-
-  if (timeRemaining <= 0) {
-    clearInterval(timerInterval);
-    timerElement.textContent = "Time's up!";
-    onSubmit();
-  }
-}
-
-function makeAnswersList(item, index) {
-  let answersList = "";
-  for (let i = 0; i < 4; i++) {
-    answersList += `
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-      <div class="flex items-center pl-3 bg-blue-100">
-        <input id="horizontal-list-radio-license" type="radio" value="${item.answers[i].value}" name='task-${index}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2" required>
-        <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">${item.answers[i].answer}</label>
-      </div>
-    </li>
-  `;
-  }
-  return answersList;
-}
 
 tasksElements.insertAdjacentHTML(
   "beforeEnd",
@@ -129,16 +90,4 @@ startBtn.addEventListener("click", startQuiz);
 
 submitBtn.addEventListener("click", onSubmit);
 
-// slider
-
-const splide = new Splide(".splide");
-const bar = splide.root.querySelector(".my-carousel-progress-bar");
-
-// Updates the bar width whenever the carousel moves:
-splide.on("mounted move", function () {
-  const end = splide.Components.Controller.getEnd() + 1;
-  const rate = Math.min((splide.index + 1) / end, 1);
-  bar.style.width = String(100 * rate) + "%";
-});
-
-splide.mount();
+sliderFunction();
