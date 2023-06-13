@@ -1,7 +1,9 @@
-import tasksList from "./tasksList.js";
-import Splide from "@splidejs/splide";
-
-new Splide(".splide").mount();
+import tasksList from "./js/tasksList.js";
+import { db, auth, addDoc, collection } from "./js/firebase.js";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { timer } from "./js/timer.js";
+import { sliderFunction } from "./js/slider.js";
+import { makeAnswersList } from "./js/answersList.js";
 
 const introSection = document.querySelector(".introduction");
 const tasksSection = document.querySelector(".tasks");
@@ -11,46 +13,11 @@ const submitBtn = document.getElementById("submitButton");
 const tasksElements = document.querySelector(".tasks_elements");
 const scoreElement = document.querySelector(".score__element");
 const timerElement = document.getElementById("timer");
-
-// TIMER
-
-let timeRemaining = 600; // 10 minutes in seconds
-
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
-    .toString()
-    .padStart(2, "0")}`;
-}
-
-function timer() {
-  timeRemaining--;
-  timerElement.textContent = formatTime(timeRemaining);
-
-  if (timeRemaining <= 0) {
-    clearInterval(timerInterval);
-    timerElement.textContent = "Time's up!";
-    onSubmit();
-  }
-}
-
-const timerInterval = setInterval(timer, 1000);
-
-function makeAnswersList(item, index) {
-  let answersList = "";
-  for (let i = 0; i < 4; i++) {
-    answersList += `
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-      <div class="flex items-center pl-3 bg-blue-100">
-        <input id="horizontal-list-radio-license" type="radio" value="${item.answers[i].value}" name='task-${index}' class="w-4 h-4 text-blue-600 bg-white border-gray-300 focus:ring-blue-500 focus:ring-2" required>
-        <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-600 text-left">${item.answers[i].answer}</label>
-      </div>
-    </li>
-  `;
-  }
-  return answersList;
-}
+const logInfo = document.querySelector(".fire-log");
+const previousResultButton = document.getElementById("previousResultButton");
+const previousResultSection = document.getElementById(
+  "previous-result-section"
+);
 
 tasksElements.insertAdjacentHTML(
   "beforeEnd",
@@ -66,11 +33,11 @@ tasksElements.insertAdjacentHTML(
       }</h4>
 
 <div class="options">
-<form>
+
 <ul class="items-center w-full text-sm font-medium text-gray-400 bg-white border border-gray-200 rounded-lg sm:flex">
 ${makeAnswersList(item, index)}
 </ul>
-</form>
+
 </div>
 </li>
 `
@@ -88,6 +55,9 @@ const startQuiz = function () {
   tasksSection.classList.toggle("hide");
   introSection.classList.toggle("hide");
   timerElement.classList.toggle("hide");
+  logInfo.classList.toggle("hide");
+  previousResultSection.classList.toggle("hide");
+  timerInterval = setInterval(timer, 1000);
 };
 
 let totalScore = 0;
@@ -116,25 +86,93 @@ const showResult = function () {
   timerElement.classList.toggle("hide");
 };
 
+const saveResult = async () => {
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      await addDoc(collection(db, "results"), {
+        userId: user.email,
+        result: totalScore,
+        timestamp: new Date(),
+      });
+      console.log("Wynik został zapisany do Firestore.");
+    } catch (error) {
+      console.error("Wystąpił błąd podczas zapisywania wyniku:", error);
+    }
+  }
+};
+
 const onSubmit = () => {
   addPoints();
   showResult();
+  saveResult();
 };
+
+let resultsVisible = false;
+const showPreviousResult = async () => {
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      const querySnapshot = await getDocs(
+        query(collection(db, "results"), where("userId", "==", user.email))
+      );
+      const results = [];
+      querySnapshot.forEach((doc) => {
+        results.push(doc.data());
+      });
+      if (results.length > 0) {
+        displayResults(results);
+      } else {
+        displayNoResultsMessage();
+      }
+    } catch (error) {
+      console.error("Wystąpił błąd podczas pobierania wyników:", error);
+    }
+  }
+};
+
+const displayResults = (results) => {
+  const previousResultSection = document.getElementById(
+    "previous-result-section"
+  );
+  previousResultSection.innerHTML = "";
+
+  results.forEach((result) => {
+    const resultElement = document.createElement("div");
+    resultElement.innerHTML = `Result: ${
+      result.result
+    } / 21<br>Date: ${result.timestamp.toDate()}`;
+    previousResultSection.appendChild(resultElement);
+  });
+};
+
+const displayNoResultsMessage = () => {
+  const previousResultSection = document.getElementById(
+    "previous-result-section"
+  );
+  previousResultSection.innerHTML = "No results available";
+};
+
+const hidePreviousResult = () => {
+  previousResultSection.innerHTML = "";
+};
+
+const toggleResultsVisibility = () => {
+  if (resultsVisible) {
+    hidePreviousResult();
+    previousResultButton.textContent = "View previous result";
+    resultsVisible = false;
+  } else {
+    showPreviousResult();
+    previousResultButton.textContent = "Hide previous result";
+    resultsVisible = true;
+  }
+};
+
+previousResultButton.addEventListener("click", toggleResultsVisibility);
 
 startBtn.addEventListener("click", startQuiz);
 
 submitBtn.addEventListener("click", onSubmit);
 
-// slider
-
-const splide = new Splide(".splide");
-const bar = splide.root.querySelector(".my-carousel-progress-bar");
-
-// Updates the bar width whenever the carousel moves:
-splide.on("mounted move", function () {
-  const end = splide.Components.Controller.getEnd() + 1;
-  const rate = Math.min((splide.index + 1) / end, 1);
-  bar.style.width = String(100 * rate) + "%";
-});
-
-splide.mount();
+sliderFunction();

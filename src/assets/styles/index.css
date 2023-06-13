@@ -14,11 +14,6 @@
   align-items: center;
 }
 
-.hide,
-button.hide {
-  display: none;
-}
-
 .my-carousel-progress {
   background: rgb(219 234 254);
   margin-left: 20%;
@@ -36,4 +31,79 @@ button.hide {
 .options {
   padding-left: 20%;
   padding-right: 20%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  min-height: 100px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fire-main__signup,
+.fire-main__signin,
+.fire-log__btn {
+  background-color: rgb(37 99 235);
+  color: white;
+  padding: 5px 20px;
+  margin-top: 10px;
+}
+
+.fire-main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  gap: 10px;
+}
+
+.fire-button__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.fire-log {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(219 234 254);
+}
+
+.hide,
+button.hide {
+  display: none !important;
+}
+
+.previous-result-section {
+  margin: 15px;
 }

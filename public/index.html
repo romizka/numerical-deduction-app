@@ -9,13 +9,53 @@
     <link href="../src/assets/styles/index.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-
+    <link href="/src/favicon.ico" rel="icon" type="image/x-icon" />
     <style>
 
 
     </style>
   </head>
   <body>
+    <!-- previous results -->
+<div id="previous-result-section" class="previous-result-section text-gray-500">
+</div>
+<!-- modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+
+
+    <!-- registration / login form -->
+<div id="authForm" class="fire-main">
+  <div class="fire-main__container">
+    <input
+      type="Email"
+      placeholder="email"
+      id="userEmail"
+      class="fire-main__mail"
+    />
+    <input
+      type="Password"
+      placeholder="password"
+      id="userPassword"
+      class="fire-main__pass"
+    />
+  </div>
+    <div class="fire-button__container">
+    <button id="signUpButton" class="fire-main__signup rounded-lg">Sign Up</button>
+    <button id="signInButton" class="fire-main__signin rounded-lg">Sign In</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- content after login -->
+<div id="secretContent" target="_blank" class="fire-log">
+  <h3>Welcome! You are logged in!</h3>
+  <button id="previousResultButton" class="fire-log__btn rounded-lg">View previous results</button>
+  <button id="signOutButton" class="fire-log__btn rounded-lg">Sign Out</button>
+</div>
+
   
 
 
@@ -180,6 +220,10 @@
       Get started
    <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
   </button>
+  <button id="signInUpButton" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
+    Sign in / up
+ <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+</button>
 </div>
 </section>
 
@@ -195,9 +239,11 @@
     <h2 class="mb-10 text-4xl font-extrabold tracking-tight leading-none text-blue-600 md:text-5xl lg:text-6xl">Numerical deduction Quiz</h2>
    
 <section class="splide">
+  <form action="">
   <div class="splide__track">
-        <ul class="splide__list tasks_elements"> 
+        <ul class="splide__list tasks_elements"> </ul>
   </div>
+</form>
 
 <!-- Add the progress bar element -->
 
@@ -217,6 +263,8 @@ SUBMIT BUTTON -->
 </button>
 
 </div>
+
+
 
 
 
